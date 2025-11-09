@@ -1,5 +1,9 @@
-`chmod +x sync-nvim.sh && ./sync-nvim.sh`
+Debugging works out of the box in Omarchy LazyVim, luckily. Yes, even Java!
 
-Nvim -> :LazyExtras -> go down to `dap.core' , hit x (enable), then restart lazyvim
+Open LazyVim with `Leader+Shift+n` or `nvim` in terminal
+Press `x` to go to LazyExtra
+Press `x` on lines ***Plugins/dap.core*** and ***Languages/lang.java***
 
-Might need to reopen twice for java-test to be installed by mason
+You need a pom.xml, gradle.build or .git to debug
+Open debug menu with `Leader+d`, b is to toggle breakpoint, c to launch/continue, but you also have a debug CLI!
+
