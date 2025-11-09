@@ -18,7 +18,7 @@ rm -rf "$NVIM_DIR"/*
 # Copy all files except the script, README.md, and .gitignore
 echo "📦  Copying new files..."
 for file in *; do
-    if [ "$file" != "$SCRIPT_NAME" ] && [ "$file" != "README.md" ] && [ "$file" != ".gitignore" ]; then
+    if [ "$file" != "$SCRIPT_NAME" ] && [ "$file" != "README.md" ] && [ "$file" != ".gitignore" ] && [ "$file" != "LICENSE" ]; then
         cp -r "$file" "$NVIM_DIR"/
     fi
 done
