@@ -1,70 +1,60 @@
--- lua/plugins/java.lua
+-- ~/.config/nvim/lua/plugins/java.lua
 return {
   {
     "nvim-java/nvim-java",
     ft = { "java" },
     dependencies = {
-      -- Mason and Mason-LSPConfig must be loaded first
-      { "mason-org/mason.nvim", opts = {} },
-      { "mason-org/mason-lspconfig.nvim", opts = {
-          ensure_installed = { "jdtls", "java-debug-adapter", "java-test" },
-        }
-      },
-      -- core LSP config
-      { "neovim/nvim-lspconfig", opts = {} },
+      -- Mason plugins (updated org name)
+      { "mason-org/mason.nvim", config = true },
+      { "mason-org/mason-lspconfig.nvim", config = true },
+
+      -- LSP support
+      { "neovim/nvim-lspconfig" },
+
+      -- Java ecosystem modules
+      { "nvim-java/language-server" },
+      { "nvim-java/test" },
+      { "nvim-java/debug" },
+      { "nvim-java/core" },
+      { "nvim-java/dap" },
     },
     config = function()
-      -- ensure the custom registry for nvim-java in Mason
+      -- 🧩 Ensure Mason knows about the nvim-java registry
       require("java").setup({
         mason = {
-          registries = { "github:nvim-java/mason-registry" },
-        },
-        -- other custom settings for nvim-java
-        java = {
-          -- example: use Java 17 runtime by default
-          configuration = {
-            runtimes = {
-              {
-                name = "JavaSE-17",
-                path = vim.fn.expand("~/.local/share/mason/packages/openjdk-17"),
-                default = true,
-              },
-            },
+          registries = {
+            "github:nvim-java/mason-registry",
           },
-        },
-        verification = {
-          invalid_order = false,
-          duplicate_setup_calls = false,
-          invalid_mason_registry = false,
         },
       })
 
-      -- setup the LSP server `jdtls` using lspconfig
-      require("lspconfig").jdtls.setup({
+      -- 🪄 Automatically ensure java tools are installed
+      local mr = require("mason-registry")
+      local pkgs = { "jdtls", "java-test", "java-debug-adapter" }
+      for _, name in ipairs(pkgs) do
+        local ok, pkg = pcall(mr.get_package, name)
+        if ok and not pkg:is_installed() then
+          pkg:install()
+        end
+      end
+
+      -- 🧠 Configure the Java LSP
+      local lspconfig = require("lspconfig")
+      lspconfig.jdtls.setup({
+        cmd = { "jdtls" },
         filetypes = { "java" },
-        -- Example on_attach and capabilities could be merged from your existing config
-        on_attach = function(client, bufnr)
-          -- your custom on_attach here
+        root_dir = function(fname)
+          return lspconfig.util.root_pattern("build.gradle", "pom.xml", ".git")(fname)
         end,
-        capabilities = vim.lsp.protocol.make_client_capabilities(),
         settings = {
           java = {
-            -- you can customize settings here
+            signatureHelp = { enabled = true },
+            contentProvider = { preferred = "fernflower" },
           },
         },
       })
 
-      -- Optionally: install missing tools via Mason programmatically
-      local mr = require("mason-registry")
-      if not mr.is_installed("java-test") then
-        mr.get_package("java-test"):install()
-      end
-      if not mr.is_installed("java-debug-adapter") then
-        mr.get_package("java-debug-adapter"):install()
-      end
-
-      -- Print message or set keymaps if you like
-      vim.notify("nvim-java is configured", vim.log.levels.INFO)
+      vim.notify("✅ nvim-java & JDTLS configured", vim.log.levels.INFO)
     end,
   },
 }
