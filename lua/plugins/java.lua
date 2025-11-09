@@ -1,23 +1,21 @@
 return {
-  'nvim-java/nvim-java',
-  config = false,
-  dependencies = {
-    {
-      'neovim/nvim-lspconfig',
-      opts = {
-        servers = {
-          jdtls = {
-            -- Your custom jdtls settings go here
-          },
-        },
-        setup = {
-          jdtls = function()
-            require('java').setup({
-              -- Your custom nvim-java configuration goes here
-            })
-          end,
-        },
-      },
+  {
+    "williamboman/mason.nvim",
+    build = ":MasonUpdate", -- always keep Mason registry up to date
+  },
+  {
+    "nvim-java/nvim-java",
+    dependencies = {
+      "neovim/nvim-lspconfig",
+      "williamboman/mason.nvim", -- ensure Mason is available first
+      "williamboman/mason-lspconfig.nvim",
+      "nvim-java/language-server",
+      "nvim-java/test",
     },
+    config = function()
+      require("java").setup({
+        -- Your nvim-java configuration goes here
+      })
+    end,
   },
 }
