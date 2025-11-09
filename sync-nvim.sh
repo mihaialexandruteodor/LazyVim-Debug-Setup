@@ -22,6 +22,7 @@ for file in *; do
        [ "$file" != "README.md" ] && \
        [ "$file" != ".gitignore" ] && \
        [ "$file" != "LICENSE" ] && \
+       [ "$file" != "vanilla-config" ] && \
        [ "$file" != "test-gradle-proj" ]; then
         cp -r "$file" "$NVIM_DIR"/
     fi
