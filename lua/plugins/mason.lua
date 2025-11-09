@@ -15,13 +15,9 @@ return {
         },
       })
 
-      -- Ensure java-related tools are installed
+      -- Automatically ensure Java tools are installed
       local mr = require("mason-registry")
-      local packages = {
-        "jdtls",               -- Java LSP server
-        "java-debug-adapter",  -- DAP adapter
-        "java-test",           -- Test runner
-      }
+      local packages = { "jdtls", "java-test" }
 
       for _, name in ipairs(packages) do
         local ok, pkg = pcall(mr.get_package, name)
