@@ -1,2 +1,4 @@
-# LazyVim-Debug-Setup
-Creating a debug Setup for LazyVim, starting with a setup for Java, which working in vim with was Satan's idea
+# 💤 LazyVim
+
+A starter template for [LazyVim](https://github.com/LazyVim/LazyVim).
+Refer to the [documentation](https://lazyvim.github.io/installation) to get started.
