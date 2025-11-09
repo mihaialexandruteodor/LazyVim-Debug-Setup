@@ -4,22 +4,23 @@ return {
     "nvim-java/nvim-java",
     ft = { "java" },  -- load only on Java files
     dependencies = {
-      -- LSP support
-      { "neovim/nvim-lspconfig" },
+      { "neovim/nvim-lspconfig" },  -- LSP support
     },
     config = function()
-      -- Just bootstrap nvim-java
-      require("java").setup()
+      -- 🧩 Bootstrap nvim-java with automatic DAP
+      require("java").setup({
+        dap = true,  -- automatically download/setup Java debug adapter
+      })
 
-      -- Configure JDTLS via lspconfig
+      -- 🧠 Configure JDTLS via lspconfig
       local lspconfig = require("lspconfig")
       lspconfig.jdtls.setup({
-        cmd = { "jdtls" },  -- uses the system-installed jdtls
+        cmd = { "jdtls" },  -- uses system-installed JDTLS
         filetypes = { "java" },
         root_dir = lspconfig.util.root_pattern("build.gradle", "pom.xml", ".git"),
       })
 
-      vim.notify("✅ nvim-java & JDTLS loaded", vim.log.levels.INFO)
+      vim.notify("✅ nvim-java & JDTLS loaded with DAP support", vim.log.levels.INFO)
     end,
   },
 }
