@@ -11,10 +11,12 @@ Open debug menu with `Leader+d`, b is to toggle breakpoint, c to launch/continue
 
 ## Brew installs
 
-Brew
+### Brew
 ``` /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" ```
 
-OpenJdk
+### OpenJdk
 
 ``` brew install openjdk ```
+Symlink in case `java -version` cannot locate runtime
+``` sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk \ /Library/Java/JavaVirtualMachines/openjdk.jdk ```
 
