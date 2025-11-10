@@ -12,11 +12,24 @@ Open debug menu with `Leader+d`, b is to toggle breakpoint, c to launch/continue
 ## Brew installs
 
 ### Brew
-``` /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" ```
+``` 
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
 
 ### OpenJdk
 
-``` brew install openjdk ```
+``` 
+brew install openjdk
+```
 Symlink in case `java -version` cannot locate runtime
-``` sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk \ /Library/Java/JavaVirtualMachines/openjdk.jdk ```
+``` 
+sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk \ /Library/Java/JavaVirtualMachines/openjdk.jdk
+```
+
+### Nerd fonts (needed for special characters)
+
+```
+brew tap homebrew/cask-fonts
+brew install --cask font-jetbrains-mono-nerd-font
+```
 
