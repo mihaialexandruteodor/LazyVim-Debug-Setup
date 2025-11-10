@@ -1,3 +1,5 @@
+<p align="center"><img src="lazyvim.png" width="50%" /></p>
+
 Debugging works out of the box in Omarchy LazyVim, luckily. Yes, even Java!
 
 Open LazyVim with `Leader+Shift+n` or `nvim` in terminal
