@@ -48,3 +48,10 @@ eval "$(zoxide init zsh)"
 ```
 to make zoxide work
 
+to add themes
+
+```
+nvim ~/.config/yazi/theme.toml
+```
+
+and paste a theme [from here for example](https://github.com/catppuccin/yazi/blob/main/themes/mocha/catppuccin-mocha-blue.toml)
