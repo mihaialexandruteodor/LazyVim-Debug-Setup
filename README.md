@@ -33,3 +33,18 @@ brew tap homebrew/cask-fonts
 brew install --cask font-jetbrains-mono-nerd-font
 ```
 
+### OTHER
+# Yazi on MAC
+install with 
+```
+brew install yazi ffmpeg sevenzip jq poppler fd ripgrep fzf zoxide resvg imagemagick font-symbols-only-nerd-font
+```
+
+edit `.zshrc` and add
+
+```
+export ZOXIDE_DATA="$HOME/.local/share/zoxide"
+eval "$(zoxide init zsh)"
+```
+to make zoxide work
+
