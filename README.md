@@ -33,7 +33,7 @@ brew tap homebrew/cask-fonts
 brew install --cask font-jetbrains-mono-nerd-font
 ```
 
-### Bazzite install
+## Bazzite install
 
 # Install Neovim via Flatpak
 flatpak install -y flathub io.neovim.nvim
