@@ -42,8 +42,12 @@ brew install neovim
 
 ```
 
-### Copy the vanilla config to 
-`~/.var/app/io.neovim.nvim/config/nvim`
+### Copy the vanilla config to the nvim folder
+```
+mkdir ~/.config/nvim
+cd ~/.config/nvim
+open .
+```
 
 ### Launch Neovim
 ```
