@@ -36,30 +36,41 @@ brew install --cask font-jetbrains-mono-nerd-font
 # Bazzite install
 
 ### Install Neovim via Flatpak
+```
 flatpak install -y flathub io.neovim.nvim
+```
 
 ### Confirm home directory
+```
 echo "Your home directory is: $HOME"
 ls -la "$HOME"
+```
 
 ### Run Neovim once to initialize Flatpak directories
+```
 flatpak run io.neovim.nvim
+```
 
 ### Ensure config directories exist
+```
 mkdir -p ~/.var/app/io.neovim.nvim/config/nvim
 mkdir -p ~/.var/app/io.neovim.nvim/cache/nvim
+```
 
 ### Create a convenient 'nvim' command
+```
 mkdir -p ~/.local/bin
 ln -sf /var/lib/flatpak/exports/bin/io.neovim.nvim ~/.local/bin/nvim
 export PATH="$HOME/.local/bin:$PATH"
+```
 
 ### Copy the vanilla config to 
 `~/.var/app/io.neovim.nvim/config/nvim`
 
 ### Launch Neovim
+```
 nvim
-
+```
 
 ### OTHER
 # Yazi on MAC
