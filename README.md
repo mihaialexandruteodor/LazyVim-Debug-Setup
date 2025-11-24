@@ -35,33 +35,11 @@ brew install --cask font-jetbrains-mono-nerd-font
 
 # Bazzite install
 
-### Install Neovim via Flatpak
+### Install Neovim via Homebrew (preinstalled on Bazzite)
+Be careful at output, you might need to chown on some folders but the output gives all the commands!
 ```
-flatpak install -y flathub io.neovim.nvim
-```
+brew install neovim
 
-### Confirm home directory
-```
-echo "Your home directory is: $HOME"
-ls -la "$HOME"
-```
-
-### Run Neovim once to initialize Flatpak directories
-```
-flatpak run io.neovim.nvim
-```
-
-### Ensure config directories exist
-```
-mkdir -p ~/.var/app/io.neovim.nvim/config/nvim
-mkdir -p ~/.var/app/io.neovim.nvim/cache/nvim
-```
-
-### Create a convenient 'nvim' command
-```
-mkdir -p ~/.local/bin
-ln -sf /var/lib/flatpak/exports/bin/io.neovim.nvim ~/.local/bin/nvim
-export PATH="$HOME/.local/bin:$PATH"
 ```
 
 ### Copy the vanilla config to 
