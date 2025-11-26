@@ -1,1 +1,0 @@
-/home/frosty/.config/omarchy/current/theme/neovim.lua
