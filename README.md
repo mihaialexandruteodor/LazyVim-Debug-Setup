@@ -74,5 +74,32 @@ to add themes
 ```
 nvim ~/.config/yazi/theme.toml
 ```
-
 and paste a theme [from here for example](https://github.com/catppuccin/yazi/blob/main/themes/mocha/catppuccin-mocha-blue.toml)
+
+# LINUX QUALITY OF LIFE IMPROVEMENTS
+I'll just put them here even if it's not 100% related to the current repo.
+
+## Alias to search ZSH history
+edit '~/.zshrc' and add
+```
+# Function to search history using grep
+search () {
+  # The "$@" variable passes all arguments received by the function to grep
+  history 1 | grep --color=always "$@"
+}
+```
+
+then reload the shell
+```
+source ~/.zshrc
+```
+## 🏷️ `search` Function Usage
+
+| Command | Description | Example Output (Hypothetical) |
+| :--- | :--- | :--- |
+| `search <term>` | Searches your entire history for any line containing the specified term. | `2017  git config --global user.name "John Doe"` |
+| `search "<phrase>"` | Searches for an exact phrase (useful for commands with spaces). **Note the quotes.** | `345  docker run -it ubuntu bash` |
+| `search <term1> <term2>` | Searches history for lines containing **both** `term1` AND `term2`. | `123  sudo apt update && sudo apt upgrade` |
+| `search -i <term>` | Performs a **case-insensitive** search (passes `-i` to `grep`). | `456  git status` |
+| `search -E "(term1\|term2)"` | Uses extended regex to search for lines containing **either** `term1` OR `term2`. (Backslash escapes the pipe `\|` to prevent table breakage). | `789  ls -l` |
+
