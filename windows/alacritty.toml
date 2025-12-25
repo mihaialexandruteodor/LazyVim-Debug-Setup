@@ -1,88 +1,54 @@
-# Window settings
-[window]
-opacity = 0.9        # 0.0 = fully transparent, 1.0 = fully opaque
-dynamic_title = true
+[env]
+TERM = "xterm-256color"
 
-[window.dimensions]
-columns = 133
-lines = 40
-
-# Font settings
 [font]
-size = 15.0
+# Changed to JetBrainsMono Nerd Font
+normal = { family = "JetBrainsMono Nerd Font Mono", style = "Regular" }
+bold = { family = "JetBrainsMono Nerd Font Mono", style = "Bold" }
+italic = { family = "JetBrainsMono Nerd Font Mono", style = "Italic" }
+size = 15
 
-[font.normal]
-family = "JetBrainsMono Nerd Font"
+[window]
+padding.x = 14
+padding.y = 14
+decorations = "Full"
+# 20% transparency means an opacity of 0.8 (80% opaque)
+opacity = 0.8
+# Increases the startup size (measured in columns/lines, not pixels)
+dimensions = { columns = 130, lines = 50 }
 
-[font.bold]
-family = "JetBrainsMono Nerd Font"
+[keyboard]
+bindings = [
+  { key = "Q", mods = "Super", action = "Quit" },
+  { key = "Insert", mods = "Shift", action = "Paste" },
+  { key = "Insert", mods = "Control", action = "Copy" }
+]
 
-[font.italic]
-
-# Colors (Catppuccin Mocha)
-
+# --- COLOR SCHEME (Catppuccin Macchiato) ---
 [colors.primary]
-background = "#1e1e2e"
-foreground = "#cdd6f4"
-dim_foreground = "#7f849c"
-bright_foreground = "#cdd6f4"
+background = "#24273a"
+foreground = "#cad3f5"
 
 [colors.cursor]
-text = "#1e1e2e"
-cursor = "#f5e0dc"
-
-[colors.vi_mode_cursor]
-text = "#1e1e2e"
-cursor = "#b4befe"
-
-[colors.search.matches]
-foreground = "#1e1e2e"
-background = "#a6adc8"
-
-[colors.search.focused_match]
-foreground = "#1e1e2e"
-background = "#a6e3a1"
-
-[colors.footer_bar]
-foreground = "#1e1e2e"
-background = "#a6adc8"
-
-[colors.hints.start]
-foreground = "#1e1e2e"
-background = "#f9e2af"
-
-[colors.hints.end]
-foreground = "#1e1e2e"
-background = "#a6adc8"
-
-[colors.selection]
-text = "#1e1e2e"
-background = "#f5e0dc"
+text = "#24273a"
+cursor = "#f4dbd6"
 
 [colors.normal]
-black = "#45475a"
-red = "#f38ba8"
-green = "#a6e3a1"
-yellow = "#f9e2af"
-blue = "#89b4fa"
-magenta = "#f5c2e7"
-cyan = "#94e2d5"
-white = "#bac2de"
+black   = "#494d64"
+red     = "#ed8796"
+green   = "#a6da95"
+yellow  = "#eed49f"
+blue    = "#8aadf4"
+magenta = "#f5bde6"
+cyan    = "#8bd5ca"
+white   = "#b8c0e0"
 
 [colors.bright]
-black = "#585b70"
-red = "#f38ba8"
-green = "#a6e3a1"
-yellow = "#f9e2af"
-blue = "#89b4fa"
-magenta = "#f5c2e7"
-cyan = "#94e2d5"
-white = "#a6adc8"
-
-[[colors.indexed_colors]]
-index = 16
-color = "#fab387"
-
-[[colors.indexed_colors]]
-index = 17
-color = "#f5e0dc"
+black   = "#5b6078"
+red     = "#ed8796"
+green   = "#a6da95"
+yellow  = "#eed49f"
+blue    = "#8aadf4"
+magenta = "#f5bde6"
+cyan    = "#8bd5ca"
+white   = "#a5adcb"
